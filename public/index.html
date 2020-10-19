@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Weather Here</title>
+  <style>
+    body {
+      padding: 20px;
+      margin: 0;
+    }
+    #mapid { 
+      height: 400px; 
+      width: 800px;
+      }
+  </style>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+
+</head>
+
+<body>
+  <h2>The Weather Here</h2>
+
+  <div>
+    <!-- <p>Latitude:&nbsp;<span id="latitude"></span></p>
+    <p>Longitude:&nbsp;<span id="longitude"></span></p> -->
+    <button type="button" id="myBtn">Submit</button>
+  </div>
+
+  <div>
+    <p>
+      I'm currently located near <span id = "location"></span>
+      at latitude <span id="latitude"></span>
+      and longitude <span id="longitude"></span>.
+    </p>
+    <p>
+      The temperature is currently <span id = "temperature"></span>&degF with a relative 
+      humidity of <span id = "humidity"></span>%.
+    </p>
+    <p>
+      The local weather conditions are <span id = "conditions"></span>.
+    </p>
+  </div>
+
+  <div id="mapid"></div>
+
+  <script src='sketch.js'></script>
+
+  <div>
+    <a href='list.html'>List Page</a>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+
+h2 {
+    margin: 5px;
+}
+
+p {
+    margin: 3px;
+}
+
+body {
+    padding: 20px;
+    margin: 0;
+}
+
+#mapid { 
+    height: 400px; 
+    width: 800px;
+}
+
+.root-div {
+    padding: 10px;
+    margin: 10px;
+    border-style: solid; 
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
