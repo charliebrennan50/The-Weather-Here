@@ -15,9 +15,9 @@ var server = app.listen(8000, function () {
 
 });
 
-app.get('/', function (req, res) {
-   res.sendFile(__dirname + "/index.html");
-});
+// app.get('/', function (req, res) {
+//    res.sendFile(__dirname + "/index.html");
+// });
 
 //get all items
 
