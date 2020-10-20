@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 const pool = require("./db");
 const cors = require("cors");
+require('dotenv').config();
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -14,9 +15,9 @@ var server = app.listen(8000, function () {
 
 });
 
-// app.get('/', function (req, res) {
-//   res.sendFile(__dirname + "/index.html");
-// });
+app.get('/', function (req, res) {
+   res.sendFile(__dirname + "/index.html");
+});
 
 //get all items
 

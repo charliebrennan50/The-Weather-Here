@@ -19,6 +19,7 @@ document.getElementById('myBtn').addEventListener("click", function () {
       const api = "https://api.openweathermap.org/data/2.5/weather";
       let weatherOptions = "units=imperial";
       let apiKey = "d2e382f0a6d1e0d614cb71aca19f1c25";
+
       let weatherURL =`${api}?lat=${lat}&lon=${long}&${weatherOptions}&appid=${apiKey}`
       let response = await fetch(weatherURL);
       let weather = await response.json();
