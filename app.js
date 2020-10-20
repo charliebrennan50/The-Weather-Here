@@ -3,15 +3,15 @@ var app = express();
 const pool = require("./db");
 const cors = require("cors");
 require('dotenv').config();
+const PORT = process.env.PORT || 8000
 
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cors());
 
-var server = app.listen(8000, function () {
+var server = app.listen(process.env.PORT, function () {
 
-  var port = server.address().port;
-  console.log(`Express app listening at localhost:${port}`);
+  console.log(`Express app listening at ${PORT}`);
 
 });
 
