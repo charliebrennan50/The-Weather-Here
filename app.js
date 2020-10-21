@@ -9,7 +9,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(cors());
 
-var server = app.listen(process.env.PORT, function () {
+var server = app.listen(PORT, function () {
 
   console.log(`Express app listening at ${PORT}`);
 
