@@ -10,7 +10,7 @@ async function getData() {
 
     for (item of data) {
         const dateString = new Date(item.timestamp).toLocaleString();
-        let popupText = `Location: ${item.location} Date: ${dateString}`
+        let popupText = `Location: ${item.location} Date: ${dateString} Note: ${item.notes}`
         var marker = L.marker([item.latitude, item.longitude]).addTo(mymap).bindPopup(popupText);
     }
 }
@@ -36,7 +36,9 @@ async function getList(){
         temperature.textContent =  `Temperature: ${Math.round(item.temperature)} °F`;
         const humidity = document.createElement('p');
         humidity.textContent = `Humidity: ${item.humidity}`;
-        root.append( date, geo, loc, conditions, temperature, humidity);
+        const notes = document.createElement('p');
+        notes.textContent  = `${item.notes}`
+        root.append( date, geo, loc, conditions, temperature, humidity, notes);
         document.body.append(root);
     }
     console.log(data);
