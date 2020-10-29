@@ -36,6 +36,9 @@ document.getElementById('myBtn').addEventListener("click", function () {
       document.getElementById("humidity").textContent = humidity;
       document.getElementById("location").textContent = location;
 
+      // Get notes 
+      let notes = document.getElementById("notes").value; 
+
       // create json object to post to database
       const data = {
         lat,
@@ -43,7 +46,8 @@ document.getElementById('myBtn').addEventListener("click", function () {
         temperature,
         conditions,
         humidity,
-        location
+        location,
+        notes
       };
       const options = {
         method: 'POST',

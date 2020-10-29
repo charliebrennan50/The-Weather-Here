@@ -41,9 +41,11 @@ app.post('/api', async (request, response) => {
   let loc = request.body.location;
   let timestamp = new Date().toLocaleString();
   request.body.timestamp = timestamp;
+  let notes = request.body.notes;
+
   try {
     const newInput = await pool.query(
-      `INSERT INTO weather(Latitude, Longitude, Conditions, Temperature, Humidity, Location, TimeStamp) VALUES('${lt}', '${ln}', '${cds}', '${tmp}', '${hum}', '${loc}','${timestamp}')`);
+      `INSERT INTO weather(Latitude, Longitude, Conditions, Temperature, Humidity, Location, TimeStamp, Notes) VALUES('${lt}', '${ln}', '${cds}', '${tmp}', '${hum}', '${loc}','${timestamp}','${notes}')`);
   } catch (error) {
       console.log(error.message);
   }
