@@ -1,5 +1,5 @@
 // initialize map
-var mymap = L.map('mapid').setView([0,0], 8);
+var mymap = L.map('mapid').setView([0, 0], 8);
 
 //create button listener
 document.getElementById('myBtn').addEventListener("click", function () {
@@ -11,33 +11,48 @@ document.getElementById('myBtn').addEventListener("click", function () {
       lat = position.coords.latitude;
       long = position.coords.longitude;
 
-      // send lat/long to current page for display
-      document.getElementById('latitude').textContent = lat.toFixed(4);
-      document.getElementById('longitude').textContent = long.toFixed(4);
+      // use lat/long to update position on main page map
+      updateMap(lat, long);
 
       // get current weather from openweathermap api
       const api = "https://api.openweathermap.org/data/2.5/weather";
       let weatherOptions = "units=imperial";
       let apiKey = "d2e382f0a6d1e0d614cb71aca19f1c25";
 
-      let weatherURL =`${api}?lat=${lat}&lon=${long}&${weatherOptions}&appid=${apiKey}`
+      let weatherURL = `${api}?lat=${lat}&lon=${long}&${weatherOptions}&appid=${apiKey}`
       let response = await fetch(weatherURL);
       let weather = await response.json();
 
       // assign weather data to variables for display and storage
+      lat = lat.toFixed(4);
+      long = long.toFixed(4);
       let temperature = weather.main.temp;
       let conditions = weather.weather[0].main;
       let humidity = weather.main.humidity;
       let location = weather.name;
 
-      //send weather data to page for display
-      document.getElementById("temperature").textContent = temperature;
-      document.getElementById("conditions").textContent = conditions;
-      document.getElementById("humidity").textContent = humidity;
-      document.getElementById("location").textContent = location;
+      //Display to page
+
+      const display = `<div>
+    <p>
+      I'm currently located near ${location}
+      at latitude ${lat}
+      and longitude ${long}.
+    </p>
+    <p>
+      The temperature is currently ${temperature}&degF with a relative
+      humidity of ${humidity}%.
+    </p>
+    <p>
+      The local weather conditions are ${conditions}.
+    </p>
+  </div>`;
+
+      document.getElementById('display-text').innerHTML = display;
+
 
       // Get notes 
-      let notes = document.getElementById("notes").value; 
+      let notes = document.getElementById("notes").value;
 
       // create json object to post to database
       const data = {
@@ -62,16 +77,13 @@ document.getElementById('myBtn').addEventListener("click", function () {
         console.log(response);
       });
 
-      // use lat/long to update position on main page map
-      updateMap(lat, long);
-
     });
   } else {
     console.log("not available");
   }
 });
 
-function updateMap(lat,long) {
+function updateMap(lat, long) {
 
   //Code to setup map tiles useing mapbox
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {

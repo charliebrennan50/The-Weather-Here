@@ -14,6 +14,7 @@ async function getData() {
         var marker = L.marker([item.latitude, item.longitude]).addTo(mymap).bindPopup(popupText);
     }
 }
+
 getList();
 async function getList() {
 
