@@ -19,13 +19,18 @@ app.get('/', function (req, res) {
    res.sendFile(__dirname + "/index.html");
 });
 
+app.get('/list', function (req, res) {
+  res.sendFile(__dirname + "/list.html");
+});
+
+
 //get all items
 
 app.get("/api", async (req, res)=> {
   try {
       const allInputs = await pool.query("SELECT * FROM weather");
       res.json(allInputs.rows);
-      console.log(allInputs.rows)
+      //console.log(allInputs.rows)
   } catch (err) {
       console.error(err.message);        
   }
@@ -44,8 +49,8 @@ app.post('/api', async (request, response) => {
   let notes = request.body.notes;
 
   try {
-    const newInput = await pool.query(
-      `INSERT INTO weather(Latitude, Longitude, Conditions, Temperature, Humidity, Location, TimeStamp, Notes) VALUES('${lt}', '${ln}', '${cds}', '${tmp}', '${hum}', '${loc}','${timestamp}','${notes}')`);
+      const newInput = await pool.query(
+        `INSERT INTO weather(Latitude, Longitude, Conditions, Temperature, Humidity, Location, TimeStamp, Notes) VALUES('${lt}', '${ln}', '${cds}', '${tmp}', '${hum}', '${loc}','${timestamp}','${notes}')`);
   } catch (error) {
       console.log(error.message);
   }

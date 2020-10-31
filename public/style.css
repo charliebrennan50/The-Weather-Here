@@ -4,7 +4,7 @@ h2 {
 }
 
 p {
-    margin: 3px;
+    margin-bottom: 2px;
 }
 
 body {
@@ -28,3 +28,16 @@ body {
     text-align: center;
 }
 
+.card-column {
+    margin-bottom: 20px;
+}
+
+.input-form {
+    margin: 20px;
+}
+
+.main-map {
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}

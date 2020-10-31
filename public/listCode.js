@@ -14,34 +14,34 @@ async function getData() {
         var marker = L.marker([item.latitude, item.longitude]).addTo(mymap).bindPopup(popupText);
     }
 }
-
 getList();
-async function getList(){
+async function getList() {
+
     const response = await fetch('/api');
     const data = await response.json();
+    let bodyHTML = '';
+    let gridCard;
 
     for (item of data) {
-        const root = document.createElement('div');
-        root.className = 'root-div';
-        const loc = document.createElement('p');
-        loc.textContent = ` Location: ${item.location}`;
-        const geo = document.createElement('p');
-        geo.textContent = `Coordinates:  ${item.latitude}, ${item.longitude}`;
-        const dateString = new Date(item.timestamp).toLocaleString();
-        const date = document.createElement('h2');
-        date.textContent = `Date: ${dateString}`;
-        const conditions = document.createElement('p');
-        conditions.textContent = `Conditions: ${item.conditions}`;
-        const temperature = document.createElement('p');
-        temperature.textContent =  `Temperature: ${Math.round(item.temperature)} °F`;
-        const humidity = document.createElement('p');
-        humidity.textContent = `Humidity: ${item.humidity}`;
-        const notes = document.createElement('p');
-        notes.textContent  = `${item.notes}`
-        root.append( date, geo, loc, conditions, temperature, humidity, notes);
-        document.body.append(root);
+
+        let date = new Date(item.timestamp).toLocaleString();
+
+        gridCard = `<div class="card-column col-lg-3 col-md-4 col-sm-6 ">
+        <div class="card">
+        <h5 class="card-header">${date}</h5>
+          <div class="card-body">
+            <h5 class="card-title">${item.location}</h5>
+            <p >Conditions: ${item.conditions}</p>
+            <p >Temperature: ${item.temperature}</p>
+            <p >Humidity: ${item.humidity}</p>
+            <p >Notes: ${item.notes}</p>
+           </div>
+        </div>
+        </div>`;
+        bodyHTML = bodyHTML + gridCard;
     }
-    console.log(data);
+    
+    document.getElementById('main-content').innerHTML = bodyHTML;
 }
 
 function updateMap() {
