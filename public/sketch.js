@@ -24,9 +24,9 @@ document.getElementById('myBtn').addEventListener("click", function () {
       let weather = await response.json();
 
       // assign weather data to variables for display and storage
-      lat = lat.toFixed(4);
-      long = long.toFixed(4);
-      let temperature = weather.main.temp;
+      lat = lat.toFixed(2);
+      long = long.toFixed(2);
+      let temperature = weather.main.temp.toFixed(0);
       let conditions = weather.weather[0].main;
       let humidity = weather.main.humidity;
       let location = weather.name;

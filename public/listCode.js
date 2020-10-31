@@ -26,6 +26,7 @@ async function getList() {
     for (item of data) {
 
         let date = new Date(item.timestamp).toLocaleString();
+        let temperature = item.temperature.toFixed(0);
 
         gridCard = `<div class="card-column col-lg-3 col-md-4 col-sm-6 ">
         <div class="card">
@@ -33,8 +34,8 @@ async function getList() {
           <div class="card-body">
             <h5 class="card-title">${item.location}</h5>
             <p >Conditions: ${item.conditions}</p>
-            <p >Temperature: ${item.temperature}</p>
-            <p >Humidity: ${item.humidity}</p>
+            <p >Temperature: ${temperature}&degF</p>
+            <p >Humidity: ${item.humidity}%</p>
             <p >Notes: ${item.notes}</p>
            </div>
         </div>
