@@ -10,7 +10,7 @@ p {
 body {
     padding: 20px;
     margin: 0;
-    background-image:url(/images/weather.png);
+    background-image:url(/images/weather_purple.png);
 }
 
 #mapid { 
@@ -41,4 +41,13 @@ body {
     margin: auto;
     margin-bottom: 40px;
     margin-top: 40px;
+}
+
+.navbar, .card-header {
+    background-color: #7952b3;
+    color: #fff;
+}
+
+.navbar-brand {
+    font-size: 40px;
 }
