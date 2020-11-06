@@ -28,17 +28,6 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
-  <!-- <style>
-    body {
-      padding: 20px;
-      margin: 0;
-    }
-
-    #mapid {
-      height: 400px;
-      width: 800px;
-    }
-  </style> -->
 
   <link rel="stylesheet" href='style.css'>
 
@@ -58,48 +47,35 @@
           <a class="nav-link" href="list.html">View Previous Posts</a>
         </li>
       </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Find My Location</button>
-      </form> -->
     </div>
   </nav>
 
   <p>By pressing submit, your current location and the current weather conditions will be saved. You
     can also add a note to include any details. You can view all of your saved locations on the "List" page.</p>
 
-  <!-- <div>
-    <button type="button" id="myBtn">Submit</button>
-  </div> -->
+  <div class="flex-container-1">
 
-  <form class='input-form'>
-    <text>Enter Notes</text>
-    <input id='notes'>
-    <button type="button" id='myBtn'>Save My Location</button>
-  </form>
+    <div class="flex-container-2">
+      <div class="flex-item">
+        <!-- <form class='input-form'> -->
+          <text>Enter Notes</text>
+          <input id='notes'>
+          <button type="button" id='myBtn'>Save My Location</button>
+        <!-- </form> -->
+      </div>
 
-  <!-- <div>
-    <p>
-      I'm currently located near <span id="location"></span>
-      at latitude <span id="latitude"></span>
-      and longitude <span id="longitude"></span>.
-    </p>
-    <p>
-      The temperature is currently <span id="temperature"></span>&degF with a relative
-      humidity of <span id="humidity"></span>%.
-    </p>
-    <p>
-      The local weather conditions are <span id="conditions"></span>.
-    </p>
-  </div> -->
+      <div class="flex-item" id="display-text"></div>
+      
+    </div>
 
-  <div id='display-text'></div>
+    <div class="flex-item">
+      <div id="mapid" class="main-map"></div>
+    </div>
 
-  <div id="mapid" class="main-map"></div>
-
-  <script src='sketch.js'></script>
+  </div>
 
 </body>
+<script src='sketch.js'></script>
 
 <footer>
   Background pattern from Toptal Subtle Patterns
